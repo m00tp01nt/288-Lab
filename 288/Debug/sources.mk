@@ -119,5 +119,8 @@ lab/log \
 lab/movement/bump \
 lab/movement \
 lab/oi \
+lab/servo/ir \
+lab/servo/ping \
+lab/servo \
 lab/timer \
 

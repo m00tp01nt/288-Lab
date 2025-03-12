@@ -4,32 +4,48 @@
  * main.c
  */
 
-#include <lab/movement/movement.h>
-#include <lab/movement/bump/bump_handlers.h>
-#include <lab/lcd/lcd.h>
-#include <lab/buttons/button.h>
-
-#include <lab/log/log.h>
-
 #include <lab/oi/open_interface.h>
 
-#include <string.h>
+// Lab 01
+#include <lab/lcd/lcd.h>
+
+// Lab 02
+#include <lab/movement/movement.h>
+#include <lab/movement/bump/bump_handlers.h>
+
+// Lab 03
+#include <lab/servo/servo.h>
+#include <cyBot_Scan.h>
+
+// Lab 04
+#include <lab/buttons/button.h>
+
+// Lab 05
+#include <lab/log/log.h>
 
 int main(void)
 {
     timer_init();
     lcd_init();
-    button_init();
     uart_interrupt_init();
 
+    // Want to send this as soon as possible
     loga("Reset\0");
 
-    char message[50];
+    cyBOT_init_Scan(0b111);
+    cyBOT_Scan_t scan;
 
-    while (1) {
-        sprintf(message, "%d", button_getButton());
-        loga(message);
-    }
+    button_init();
 
-	return 0;
+    oi_t *cybot = oi_alloc();
+    oi_init(cybot);
+
+
+    scanBetween(&scan, 0, 180, 5);
+
+
+    oi_free(cybot);
+
+    loga("Terminated\0");
+    return 0;
 }
