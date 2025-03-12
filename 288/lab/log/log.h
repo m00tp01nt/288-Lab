@@ -4,7 +4,7 @@
 #define _LOG_H_
 
 #include <lab/lcd/lcd.h>
-#include <lab/lab6_UART/uart-interrupt.h>
+#include <lab/UART-interrupt/uart-interrupt.h>
 #include <string.h>
 
 typedef enum LOG_DEVICE {

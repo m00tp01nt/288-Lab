@@ -12,7 +12,8 @@ GEN_CMDS__FLAG :=
 ORDERED_OBJS += \
 "./main.obj" \
 "./tm4c123gh6pm_startup_ccs.obj" \
-"./lab/lab6_UART/uart-interrupt.obj" \
+"./lab/UART-interrupt/uart-interrupt.obj" \
+"./lab/buttons/button.obj" \
 "./lab/lcd/lcd.obj" \
 "./lab/log/log.obj" \
 "./lab/movement/bump/bump_handlers.obj" \
@@ -32,7 +33,8 @@ RMDIR := RMDIR /S/Q
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include subdir_vars.mk
--include lab/lab6_UART/subdir_vars.mk
+-include lab/UART-interrupt/subdir_vars.mk
+-include lab/buttons/subdir_vars.mk
 -include lab/lcd/subdir_vars.mk
 -include lab/log/subdir_vars.mk
 -include lab/movement/bump/subdir_vars.mk
@@ -40,7 +42,8 @@ RMDIR := RMDIR /S/Q
 -include lab/oi/subdir_vars.mk
 -include lab/timer/subdir_vars.mk
 -include subdir_rules.mk
--include lab/lab6_UART/subdir_rules.mk
+-include lab/UART-interrupt/subdir_rules.mk
+-include lab/buttons/subdir_rules.mk
 -include lab/lcd/subdir_rules.mk
 -include lab/log/subdir_rules.mk
 -include lab/movement/bump/subdir_rules.mk
@@ -164,8 +167,8 @@ all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)
-	-$(RM) "main.obj" "tm4c123gh6pm_startup_ccs.obj" "lab\lab6_UART\uart-interrupt.obj" "lab\lcd\lcd.obj" "lab\log\log.obj" "lab\movement\bump\bump_handlers.obj" "lab\movement\movement.obj" "lab\oi\open_interface.obj" "lab\timer\Timer.obj" 
-	-$(RM) "main.d" "tm4c123gh6pm_startup_ccs.d" "lab\lab6_UART\uart-interrupt.d" "lab\lcd\lcd.d" "lab\log\log.d" "lab\movement\bump\bump_handlers.d" "lab\movement\movement.d" "lab\oi\open_interface.d" "lab\timer\Timer.d" 
+	-$(RM) "main.obj" "tm4c123gh6pm_startup_ccs.obj" "lab\UART-interrupt\uart-interrupt.obj" "lab\buttons\button.obj" "lab\lcd\lcd.obj" "lab\log\log.obj" "lab\movement\bump\bump_handlers.obj" "lab\movement\movement.obj" "lab\oi\open_interface.obj" "lab\timer\Timer.obj" 
+	-$(RM) "main.d" "tm4c123gh6pm_startup_ccs.d" "lab\UART-interrupt\uart-interrupt.d" "lab\buttons\button.d" "lab\lcd\lcd.d" "lab\log\log.d" "lab\movement\bump\bump_handlers.d" "lab\movement\movement.d" "lab\oi\open_interface.d" "lab\timer\Timer.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

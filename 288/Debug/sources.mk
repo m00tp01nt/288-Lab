@@ -112,7 +112,8 @@ PDE_DEPS__QUOTED :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 . \
-lab/lab6_UART \
+lab/UART-interrupt \
+lab/buttons \
 lab/lcd \
 lab/log \
 lab/movement/bump \
