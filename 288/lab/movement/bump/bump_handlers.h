@@ -4,6 +4,7 @@
 #define BUMP_HANDLERS_H_
 
 #include <lab/movement/movement.h>
+#include <lab/log/log.h>
 
 
 void handleBump(oi_t* sensor_data, BUMP* bumpData, double* sum);

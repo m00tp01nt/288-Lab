@@ -14,19 +14,18 @@
 
 int main(void)
 {
-
     timer_init();
     lcd_init();
+    uart_interrupt_init();
 
     oi_t *cybot = oi_alloc();
     oi_init(cybot);
 
-    loga("Reset");
-
+    loga("Reset\0");
 
     move(cybot, 2000, FORWARD, handleBump);
 
-    log_message(LCD, "Done!");
+    loga("Done!\0");
 
     oi_free(cybot);
 

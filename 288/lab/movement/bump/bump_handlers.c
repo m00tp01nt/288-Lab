@@ -10,15 +10,19 @@ void handleBump(oi_t* sensor_data, BUMP* bumpData, double* sum) {
     *sum -= move(sensor_data, 15, BACKWARD, doNothing);
 
     if (*bumpData == BUMP_LEFT) {
+        log_putty("Handling Left Bump\0");
         rotate(sensor_data, 90, RIGHT, doNothing);
         move(sensor_data, 25, FORWARD, doNothing);
         rotate(sensor_data, 90, LEFT, doNothing);
     }
     else if (*bumpData == BUMP_RIGHT) {
+        log_putty("Handling Right Bump\0");
         rotate(sensor_data, 90, LEFT, doNothing);
         move(sensor_data, 25, FORWARD, doNothing);
         rotate(sensor_data, 90, RIGHT, doNothing);
     }
 
     oi_setWheels(0, 0);
+
+    log_putty("Done Handling\0");
 }

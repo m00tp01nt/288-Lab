@@ -27,6 +27,7 @@ main.obj: C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/stdbool
 main.obj: C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/interrupt.h
 main.obj: U:/CPRE288/workspace/288/lab/lcd/lcd.h
 main.obj: U:/CPRE288/workspace/288/lab/log/log.h
+main.obj: U:/CPRE288/workspace/288/lab/lab6_UART/uart-interrupt.h
 main.obj: U:/CPRE288/workspace/288/lab/movement/bump/bump_handlers.h
 
 ../main.c:
@@ -82,6 +83,8 @@ C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/interrupt.h:
 U:/CPRE288/workspace/288/lab/lcd/lcd.h:
 
 U:/CPRE288/workspace/288/lab/log/log.h:
+
+U:/CPRE288/workspace/288/lab/lab6_UART/uart-interrupt.h:
 
 U:/CPRE288/workspace/288/lab/movement/bump/bump_handlers.h:
 
