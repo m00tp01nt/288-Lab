@@ -5,34 +5,22 @@
 SHELL = cmd.exe
 
 # Add inputs and outputs from these tool invocations to the build variables 
-CMD_SRCS += \
-../tm4c123gh6pm.cmd 
-
-LIB_SRCS += \
-../libcybotScan.lib 
-
 C_SRCS += \
-../main.c \
-../tm4c123gh6pm_startup_ccs.c 
+../lab/servo/ir/ir.c 
 
 C_DEPS += \
-./main.d \
-./tm4c123gh6pm_startup_ccs.d 
+./lab/servo/ir/ir.d 
 
 OBJS += \
-./main.obj \
-./tm4c123gh6pm_startup_ccs.obj 
+./lab/servo/ir/ir.obj 
 
 OBJS__QUOTED += \
-"main.obj" \
-"tm4c123gh6pm_startup_ccs.obj" 
+"lab\servo\ir\ir.obj" 
 
 C_DEPS__QUOTED += \
-"main.d" \
-"tm4c123gh6pm_startup_ccs.d" 
+"lab\servo\ir\ir.d" 
 
 C_SRCS__QUOTED += \
-"../main.c" \
-"../tm4c123gh6pm_startup_ccs.c" 
+"../lab/servo/ir/ir.c" 
 
 

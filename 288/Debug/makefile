@@ -19,7 +19,11 @@ ORDERED_OBJS += \
 "./lab/movement/bump/bump_handlers.obj" \
 "./lab/movement/movement.obj" \
 "./lab/oi/open_interface.obj" \
+"./lab/servo/ir/ir.obj" \
+"./lab/servo/ping/ping.obj" \
+"./lab/servo/servo.obj" \
 "./lab/timer/Timer.obj" \
+"../libcybotScan.lib" \
 "../tm4c123gh6pm.cmd" \
 $(GEN_CMDS__FLAG) \
 -llibc.a \
@@ -40,6 +44,9 @@ RMDIR := RMDIR /S/Q
 -include lab/movement/bump/subdir_vars.mk
 -include lab/movement/subdir_vars.mk
 -include lab/oi/subdir_vars.mk
+-include lab/servo/ir/subdir_vars.mk
+-include lab/servo/ping/subdir_vars.mk
+-include lab/servo/subdir_vars.mk
 -include lab/timer/subdir_vars.mk
 -include subdir_rules.mk
 -include lab/UART-interrupt/subdir_rules.mk
@@ -49,6 +56,9 @@ RMDIR := RMDIR /S/Q
 -include lab/movement/bump/subdir_rules.mk
 -include lab/movement/subdir_rules.mk
 -include lab/oi/subdir_rules.mk
+-include lab/servo/ir/subdir_rules.mk
+-include lab/servo/ping/subdir_rules.mk
+-include lab/servo/subdir_rules.mk
 -include lab/timer/subdir_rules.mk
 -include objects.mk
 
@@ -153,11 +163,11 @@ EXE_OUTPUTS__QUOTED += \
 
 
 # All Target
-all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+all: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
 	@$(MAKE) --no-print-directory -Onone "288.out"
 
 # Tool invocations
-288.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+288.out: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: Arm Linker'
 	"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"288.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="288_linkInfo.xml" --rom_model -o "288.out" $(ORDERED_OBJS)
@@ -167,8 +177,8 @@ all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)
-	-$(RM) "main.obj" "tm4c123gh6pm_startup_ccs.obj" "lab\UART-interrupt\uart-interrupt.obj" "lab\buttons\button.obj" "lab\lcd\lcd.obj" "lab\log\log.obj" "lab\movement\bump\bump_handlers.obj" "lab\movement\movement.obj" "lab\oi\open_interface.obj" "lab\timer\Timer.obj" 
-	-$(RM) "main.d" "tm4c123gh6pm_startup_ccs.d" "lab\UART-interrupt\uart-interrupt.d" "lab\buttons\button.d" "lab\lcd\lcd.d" "lab\log\log.d" "lab\movement\bump\bump_handlers.d" "lab\movement\movement.d" "lab\oi\open_interface.d" "lab\timer\Timer.d" 
+	-$(RM) "main.obj" "tm4c123gh6pm_startup_ccs.obj" "lab\UART-interrupt\uart-interrupt.obj" "lab\buttons\button.obj" "lab\lcd\lcd.obj" "lab\log\log.obj" "lab\movement\bump\bump_handlers.obj" "lab\movement\movement.obj" "lab\oi\open_interface.obj" "lab\servo\ir\ir.obj" "lab\servo\ping\ping.obj" "lab\servo\servo.obj" "lab\timer\Timer.obj" 
+	-$(RM) "main.d" "tm4c123gh6pm_startup_ccs.d" "lab\UART-interrupt\uart-interrupt.d" "lab\buttons\button.d" "lab\lcd\lcd.d" "lab\log\log.d" "lab\movement\bump\bump_handlers.d" "lab\movement\movement.d" "lab\oi\open_interface.d" "lab\servo\ir\ir.d" "lab\servo\ping\ping.d" "lab\servo\servo.d" "lab\timer\Timer.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
