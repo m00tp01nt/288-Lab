@@ -21,7 +21,7 @@ lab/log/log.obj: C:/ti/TivaWare_C_Series-2.2.0.295/inc/tm4c123gh6pm.h
 lab/log/log.obj: U:/CPRE288/workspace/288/lab/timer/Timer.h
 lab/log/log.obj: C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/stdbool.h
 lab/log/log.obj: C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/interrupt.h
-lab/log/log.obj: U:/CPRE288/workspace/288/lab/lab6_UART/uart-interrupt.h
+lab/log/log.obj: U:/CPRE288/workspace/288/lab/UART-interrupt/uart-interrupt.h
 
 ../lab/log/log.c:
 
@@ -65,5 +65,5 @@ C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/stdbool.h:
 
 C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/interrupt.h:
 
-U:/CPRE288/workspace/288/lab/lab6_UART/uart-interrupt.h:
+U:/CPRE288/workspace/288/lab/UART-interrupt/uart-interrupt.h:
 
