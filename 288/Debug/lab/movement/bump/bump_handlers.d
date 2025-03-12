@@ -28,6 +28,7 @@ lab/movement/bump/bump_handlers.obj: C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm
 lab/movement/bump/bump_handlers.obj: C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/interrupt.h
 lab/movement/bump/bump_handlers.obj: U:/CPRE288/workspace/288/lab/lcd/lcd.h
 lab/movement/bump/bump_handlers.obj: U:/CPRE288/workspace/288/lab/log/log.h
+lab/movement/bump/bump_handlers.obj: U:/CPRE288/workspace/288/lab/lab6_UART/uart-interrupt.h
 
 ../lab/movement/bump/bump_handlers.c:
 
@@ -84,4 +85,6 @@ C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/interrupt.h:
 U:/CPRE288/workspace/288/lab/lcd/lcd.h:
 
 U:/CPRE288/workspace/288/lab/log/log.h:
+
+U:/CPRE288/workspace/288/lab/lab6_UART/uart-interrupt.h:
 
