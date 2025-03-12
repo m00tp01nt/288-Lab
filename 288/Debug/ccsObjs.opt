@@ -1,0 +1,11 @@
+"./main.obj"
+"./tm4c123gh6pm_startup_ccs.obj"
+"./lab/lcd/lcd.obj"
+"./lab/log/log.obj"
+"./lab/movement/bump/bump_handlers.obj"
+"./lab/movement/movement.obj"
+"./lab/oi/open_interface.obj"
+"./lab/timer/Timer.obj"
+"../tm4c123gh6pm.cmd"
+-llibc.a
+-l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib"
