@@ -13,6 +13,7 @@ ORDERED_OBJS += \
 "./main.obj" \
 "./tm4c123gh6pm_startup_ccs.obj" \
 "./lab/UART-interrupt/uart-interrupt.obj" \
+"./lab/adc.obj" \
 "./lab/buttons/button.obj" \
 "./lab/lcd/lcd.obj" \
 "./lab/log/log.obj" \
@@ -38,6 +39,7 @@ RMDIR := RMDIR /S/Q
 -include sources.mk
 -include subdir_vars.mk
 -include lab/UART-interrupt/subdir_vars.mk
+-include lab/subdir_vars.mk
 -include lab/buttons/subdir_vars.mk
 -include lab/lcd/subdir_vars.mk
 -include lab/log/subdir_vars.mk
@@ -50,6 +52,7 @@ RMDIR := RMDIR /S/Q
 -include lab/timer/subdir_vars.mk
 -include subdir_rules.mk
 -include lab/UART-interrupt/subdir_rules.mk
+-include lab/subdir_rules.mk
 -include lab/buttons/subdir_rules.mk
 -include lab/lcd/subdir_rules.mk
 -include lab/log/subdir_rules.mk
@@ -177,8 +180,8 @@ all: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)
-	-$(RM) "main.obj" "tm4c123gh6pm_startup_ccs.obj" "lab\UART-interrupt\uart-interrupt.obj" "lab\buttons\button.obj" "lab\lcd\lcd.obj" "lab\log\log.obj" "lab\movement\bump\bump_handlers.obj" "lab\movement\movement.obj" "lab\oi\open_interface.obj" "lab\servo\ir\ir.obj" "lab\servo\ping\ping.obj" "lab\servo\servo.obj" "lab\timer\Timer.obj" 
-	-$(RM) "main.d" "tm4c123gh6pm_startup_ccs.d" "lab\UART-interrupt\uart-interrupt.d" "lab\buttons\button.d" "lab\lcd\lcd.d" "lab\log\log.d" "lab\movement\bump\bump_handlers.d" "lab\movement\movement.d" "lab\oi\open_interface.d" "lab\servo\ir\ir.d" "lab\servo\ping\ping.d" "lab\servo\servo.d" "lab\timer\Timer.d" 
+	-$(RM) "main.obj" "tm4c123gh6pm_startup_ccs.obj" "lab\UART-interrupt\uart-interrupt.obj" "lab\adc.obj" "lab\buttons\button.obj" "lab\lcd\lcd.obj" "lab\log\log.obj" "lab\movement\bump\bump_handlers.obj" "lab\movement\movement.obj" "lab\oi\open_interface.obj" "lab\servo\ir\ir.obj" "lab\servo\ping\ping.obj" "lab\servo\servo.obj" "lab\timer\Timer.obj" 
+	-$(RM) "main.d" "tm4c123gh6pm_startup_ccs.d" "lab\UART-interrupt\uart-interrupt.d" "lab\adc.d" "lab\buttons\button.d" "lab\lcd\lcd.d" "lab\log\log.d" "lab\movement\bump\bump_handlers.d" "lab\movement\movement.d" "lab\oi\open_interface.d" "lab\servo\ir\ir.d" "lab\servo\ping\ping.d" "lab\servo\servo.d" "lab\timer\Timer.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

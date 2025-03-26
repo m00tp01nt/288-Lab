@@ -1,6 +1,7 @@
 "./main.obj"
 "./tm4c123gh6pm_startup_ccs.obj"
 "./lab/UART-interrupt/uart-interrupt.obj"
+"./lab/adc.obj"
 "./lab/buttons/button.obj"
 "./lab/lcd/lcd.obj"
 "./lab/log/log.obj"

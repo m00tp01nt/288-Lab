@@ -113,6 +113,7 @@ PDE_DEPS__QUOTED :=
 SUBDIRS := \
 . \
 lab/UART-interrupt \
+lab \
 lab/buttons \
 lab/lcd \
 lab/log \

@@ -4,6 +4,8 @@
  * main.c
  */
 
+#include <string.h>
+
 #include <lab/oi/open_interface.h>
 
 // Lab 01
@@ -23,6 +25,9 @@
 // Lab 05
 #include <lab/log/log.h>
 
+// Lab 08
+#include <lab/adc.h>
+
 int main(void)
 {
     timer_init();
@@ -40,9 +45,17 @@ int main(void)
     oi_t *cybot = oi_alloc();
     oi_init(cybot);
 
+    adc_init();
 
-    scanBetween(&scan, 0, 180, 5);
+    char message[50];
 
+    int i = 0;
+
+    while (1) {
+        sprintf(message, "%d", adc_read());
+        log_message(LCD, message);
+        for (i = 0; i < 100000; i++) {}
+    }
 
     oi_free(cybot);
 

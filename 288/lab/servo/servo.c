@@ -13,3 +13,4 @@ void scanBetween(cyBOT_Scan_t* scanner, int left, int right, int increment) {
         cyBOT_Scan(i, scanner);
     }
 }
+

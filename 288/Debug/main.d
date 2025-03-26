@@ -1,21 +1,21 @@
 # FIXED
 
 main.obj: ../main.c
-main.obj: U:/CPRE288/workspace/288/lab/oi/open_interface.h
-main.obj: C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/stdio.h
+main.obj: C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/string.h
 main.obj: C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/_ti_config.h
 main.obj: C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/linkage.h
+main.obj: C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/sys/cdefs.h
+main.obj: C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/xlocale/_string.h
+main.obj: U:/CPRE288/workspace/288/lab/oi/open_interface.h
+main.obj: C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/stdio.h
 main.obj: C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/stdarg.h
 main.obj: C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/sys/_types.h
-main.obj: C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/sys/cdefs.h
 main.obj: C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/machine/_types.h
 main.obj: C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/stdint.h
 main.obj: C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/_stdint40.h
 main.obj: C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/sys/stdint.h
 main.obj: C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/machine/_stdint.h
 main.obj: C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/sys/_stdint.h
-main.obj: C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/string.h
-main.obj: C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/xlocale/_string.h
 main.obj: C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/stdlib.h
 main.obj: C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/math.h
 main.obj: C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/_defs.h
@@ -32,22 +32,27 @@ main.obj: U:/CPRE288/workspace/288/lab/movement/bump/bump_handlers.h
 main.obj: U:/CPRE288/workspace/288/lab/servo/servo.h
 main.obj: U:/CPRE288/workspace/288/cyBot_Scan.h
 main.obj: U:/CPRE288/workspace/288/lab/buttons/button.h
+main.obj: U:/CPRE288/workspace/288/lab/adc.h
 
 ../main.c:
 
-U:/CPRE288/workspace/288/lab/oi/open_interface.h:
-
-C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/stdio.h:
+C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/string.h:
 
 C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/_ti_config.h:
 
 C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/linkage.h:
 
+C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/sys/cdefs.h:
+
+C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/xlocale/_string.h:
+
+U:/CPRE288/workspace/288/lab/oi/open_interface.h:
+
+C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/stdio.h:
+
 C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/stdarg.h:
 
 C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/sys/_types.h:
-
-C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/sys/cdefs.h:
 
 C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/machine/_types.h:
 
@@ -60,10 +65,6 @@ C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/sys/stdint.h:
 C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/machine/_stdint.h:
 
 C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/sys/_stdint.h:
-
-C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/string.h:
-
-C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/xlocale/_string.h:
 
 C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/stdlib.h:
 
@@ -96,4 +97,6 @@ U:/CPRE288/workspace/288/lab/servo/servo.h:
 U:/CPRE288/workspace/288/cyBot_Scan.h:
 
 U:/CPRE288/workspace/288/lab/buttons/button.h:
+
+U:/CPRE288/workspace/288/lab/adc.h:
 
