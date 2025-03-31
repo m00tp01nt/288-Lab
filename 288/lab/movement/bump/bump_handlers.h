@@ -9,5 +9,6 @@
 
 void handleBump(oi_t* sensor_data, BUMP* bumpData, double* sum);
 void doNothing(oi_t* sensor_data, BUMP* bumpData, double* sum);
+void moveToAnotherSpot(oi_t* sensor_data, BUMP* bumpData, double* sum);
 
 #endif

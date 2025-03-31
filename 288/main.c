@@ -5,7 +5,6 @@
  */
 
 #include <string.h>
-
 #include <lab/oi/open_interface.h>
 
 // Lab 01
@@ -27,6 +26,7 @@
 
 // Lab 08
 #include <lab/adc.h>
+#include <lab/servo/ir/ir.h>
 
 int main(void)
 {
@@ -35,10 +35,12 @@ int main(void)
     uart_interrupt_init();
 
     // Want to send this as soon as possible
-    loga("Reset\0");
+    loga("\r\nReset\0");
 
     cyBOT_init_Scan(0b111);
-    cyBOT_Scan_t scan;
+    right_calibration_value = 248500;
+    left_calibration_value  = 1193500;
+    cyBOT_Scan_t scanner;
 
     button_init();
 
@@ -47,15 +49,17 @@ int main(void)
 
     adc_init();
 
-    char message[50];
+    loga("Initialization Complete\0");
 
-    int i = 0;
+    // Button 4 is the go button
+    loga("Press Button 4 to start\0");
+    while (button_getButton() != 4) {}
 
-    while (1) {
-        sprintf(message, "%d", adc_read());
-        log_message(LCD, message);
-        for (i = 0; i < 100000; i++) {}
-    }
+    loga("Running\0");
+
+
+    scanBetween(&scanner, 180, 0, 1, 5);
+
 
     oi_free(cybot);
 

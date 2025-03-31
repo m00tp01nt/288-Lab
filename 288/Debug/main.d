@@ -33,6 +33,7 @@ main.obj: U:/CPRE288/workspace/288/lab/servo/servo.h
 main.obj: U:/CPRE288/workspace/288/cyBot_Scan.h
 main.obj: U:/CPRE288/workspace/288/lab/buttons/button.h
 main.obj: U:/CPRE288/workspace/288/lab/adc.h
+main.obj: U:/CPRE288/workspace/288/lab/servo/ir/ir.h
 
 ../main.c:
 
@@ -99,4 +100,6 @@ U:/CPRE288/workspace/288/cyBot_Scan.h:
 U:/CPRE288/workspace/288/lab/buttons/button.h:
 
 U:/CPRE288/workspace/288/lab/adc.h:
+
+U:/CPRE288/workspace/288/lab/servo/ir/ir.h:
 

@@ -3,7 +3,16 @@
 
 #include "cyBot_Scan.h"
 
+typedef struct object {
 
-void scanBetween(cyBOT_Scan_t *scanner, int left, int right, int increment);
+    int startAngle;
+    int endAngle;
+    int midpoint;
+    float distance;
+
+} object;
+
+object scanBetween(cyBOT_Scan_t*, int, int, int, int);
+float calculateAngularWidth(object);
 
 #endif
