@@ -71,6 +71,11 @@ object scanBetween(cyBOT_Scan_t* scanner, int left, int right, int increment, in
     loga(message);
 
     // Throw out the first object???
+/*
+* Minor edit if we still want to throw out first object due to noise:
+* if (calculateAngularWidth(objects[0]) < 5) {loga("Ignoring first object due noise.");}
+* j = 1; //Initialize int j = 0;
+*/
 
     for (objectCounter--; objectCounter >= 0; objectCounter--)
     {
