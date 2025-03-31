@@ -23,7 +23,7 @@ object scanBetween(cyBOT_Scan_t* scanner, int left, int right, int increment, in
     object smallestObject;
     smallestObject.startAngle = 0;
     smallestObject.endAngle = 0;
-    smallestObject.distance = 0;
+    smallestObject.distance = 0; //MISTAKE: SINCE IT IS 0, CHANGE TO MAX VALUE INSTEAD?
 
 
     int i;
@@ -83,7 +83,7 @@ object scanBetween(cyBOT_Scan_t* scanner, int left, int right, int increment, in
         sprintf(message, "WIDTH : %f", calculateAngularWidth(objects[objectCounter]));
         log_message(PUTTY, message);
 
-        if (calculateAngularWidth(objects[objectCounter]) < calculateAngularWidth(smallestObject)) {
+        if (calculateAngularWidth(objects[objectCounter]) < calculateAngularWidth(smallestObject)) { //MISTAKE: When smallestObject.distance = 0, x < 0 will always remain 0
             smallestObject.startAngle = objects[objectCounter].startAngle;
             smallestObject.endAngle = objects[objectCounter].endAngle;
             smallestObject.midpoint = objects[objectCounter].midpoint;
