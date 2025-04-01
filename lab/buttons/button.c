@@ -112,3 +112,8 @@ int button_getButton(void) {
     }
     return 0;
 }
+
+void waitForButton(int number) {
+    while (button_getButton() != number) {}
+    return;
+}

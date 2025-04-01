@@ -4,5 +4,6 @@
 
 float normalizeData(int);
 float calculateDistance(float);
+void calibrate_IR(void);
 
 #endif

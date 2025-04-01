@@ -152,6 +152,6 @@ double just_move(oi_t *sensor_data, double distance_mm) {
     return move(sensor_data, distance_mm, FORWARD, doNothing);
 }
 
-double just_rotate(oi_t *sensor_data, double angle) {
+double just_turn(oi_t *sensor_data, double angle) {
     return rotate(sensor_data, angle, LEFT, doNothing);
 }

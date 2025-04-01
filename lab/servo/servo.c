@@ -14,7 +14,10 @@
 #include <lab/movement/movement.h>
 #include <lab/movement/bump/bump_handlers.h>
 
-object scanBetween(cyBOT_Scan_t* scanner, int left, int right, int increment, int readsPerAngle) {
+#define MAX 50
+#define MIN -50
+
+object findThinnestObject(cyBOT_Scan_t* scanner, int left, int right, int increment, int readsPerAngle) {
 
     char message[50];
 
@@ -38,6 +41,8 @@ object scanBetween(cyBOT_Scan_t* scanner, int left, int right, int increment, in
     cyBOT_Scan(right, scanner);
     timer_waitMillis(1000);
 
+    for (i = 0; i < 100; i++) { adc_read(); }
+
     for (i = right; i < left; i += increment)
     {
         cyBOT_Scan(i, scanner);
@@ -52,16 +57,16 @@ object scanBetween(cyBOT_Scan_t* scanner, int left, int right, int increment, in
         pingDistance /= readsPerAngle;
         irDistance /= readsPerAngle;
 
-        sprintf(message, "DATA : %f", irDistance);
+        sprintf(message, "DISTANCE : %f", irDistance);
         log_message(PUTTY, message);
 
         // If we see something between 50cm and 20cm, we've found an object and should start tracking it
-        if ((irDistance < 50) && (irDistance > 20) && (!trackingObject) && (abs(irDistance - 50) < 10)) {
+        if ((irDistance < MAX) && (irDistance > MIN) && (!trackingObject)) {
             loga("Start Object");
             trackingObject = 1;
             objects[objectCounter].startAngle = i;
         }
-        if (((irDistance > 50) || (irDistance < 20)) && (trackingObject)) {
+        if (((irDistance > MAX) || (irDistance < MIN)) && (trackingObject)) {
             loga("End Object");
             trackingObject = 0;
             objects[objectCounter].endAngle = (i - 1);
@@ -93,11 +98,14 @@ object scanBetween(cyBOT_Scan_t* scanner, int left, int right, int increment, in
         sprintf(message, "WIDTH : %f", calculateAngularWidth(objects[objectCounter]));
         log_message(PUTTY, message);
 
-        if (calculateAngularWidth(objects[objectCounter]) < calculateAngularWidth(smallestObject)) { //MISTAKE: When smallestObject.distance = 0, x < 0 will always remain 0
+        objects[objectCounter].width = calculateAngularWidth(objects[objectCounter]);
+
+        if (calculateAngularWidth(objects[objectCounter]) < calculateAngularWidth(smallestObject)) {
             smallestObject.startAngle = objects[objectCounter].startAngle;
             smallestObject.endAngle = objects[objectCounter].endAngle;
             smallestObject.midpoint = objects[objectCounter].midpoint;
             smallestObject.distance = objects[objectCounter].distance;
+            smallestObject.width = objects[objectCounter].width;
         }
         timer_waitMillis(1000);
     }
@@ -106,6 +114,7 @@ object scanBetween(cyBOT_Scan_t* scanner, int left, int right, int increment, in
     sprintf(message, "MIDPOINT : %d", smallestObject.midpoint);
     log_message(PUTTY, message);
     cyBOT_Scan(smallestObject.midpoint, scanner);
+    loga("Pointing at thinnest object\0");
 
     return smallestObject;
 }
@@ -113,4 +122,12 @@ object scanBetween(cyBOT_Scan_t* scanner, int left, int right, int increment, in
 
 float calculateAngularWidth(object obj) {
     return 2 * 3.14159265358979323846 * obj.distance * (abs(obj.startAngle - obj.endAngle) / (float)360);
+}
+
+void initObject(object* o) {
+    o->startAngle = 0;
+    o->endAngle = 0;
+    o->midpoint = 0;
+    o->distance = 0.0;
+    o->width = 0.0;
 }

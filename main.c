@@ -6,6 +6,7 @@
 
 #include <string.h>
 #include <lab/oi/open_interface.h>
+#include <cyBot_Scan.h>
 
 // Lab 01
 #include <lab/lcd/lcd.h>
@@ -30,19 +31,21 @@
 
 int main(void)
 {
+    char message[50];
+
     timer_init();
     lcd_init();
     uart_interrupt_init();
 
     // Want to send this as soon as possible
-    loga("\r\nReset\0");
+    loga("\nReset\0");
 
     cyBOT_init_Scan(0b111);
 
-//    cyBOT_SERVRO_cal_t calibrator = cyBOT_SERVO_cal();
+//    cyBOT_SERVRO_cal_t calibrator = cyBOT_SERVO_cal(); return 0;
 
-    right_calibration_value = 285250;
-    left_calibration_value  = 1272250;
+    right_calibration_value = 238000;
+    left_calibration_value  = 1167250;
     cyBOT_Scan_t scanner;
 
     button_init();
@@ -52,6 +55,10 @@ int main(void)
 
     adc_init();
 
+//    calibrate_IR(); return 0;
+
+    cyBOT_Scan(90, &scanner);
+
     loga("Initialization Complete\0");
 
     // Button 4 is the go button
@@ -60,9 +67,18 @@ int main(void)
 
     loga("Running\0");
 
+    object position;
+    initObject(&position);
 
-    scanBetween(&scanner, 180, 0, 1, 5);
+    object target;
 
+    target = findThinnestObject(&scanner, 180, 0, 1, 5);
+
+    sprintf(message, "Target is %f cm away", target.distance);
+    log_message(PUTTY, message);
+
+    just_turn(cybot, target.midpoint - 90);
+    move(cybot, ((int)target.distance * 10) - target.width, FORWARD, doNothing);
 
     oi_free(cybot);
 

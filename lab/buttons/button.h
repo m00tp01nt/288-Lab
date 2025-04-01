@@ -21,5 +21,7 @@ void button_init(void);
 ///Returns highest value button being pressed, 0 if no button pressed
 int button_getButton(void);
 
+void waitForButton(int);
+
 
 #endif /* BUTTON_H_ */

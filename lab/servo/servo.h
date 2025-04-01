@@ -1,6 +1,7 @@
 #ifndef SERVO_H_
 #define SERVO_H_
 
+
 #include "cyBot_Scan.h"
 
 typedef struct object {
@@ -9,10 +10,14 @@ typedef struct object {
     int endAngle;
     int midpoint;
     float distance;
+    float width;
 
 } object;
 
-object scanBetween(cyBOT_Scan_t*, int, int, int, int);
+object findThinnestObject(cyBOT_Scan_t*, int, int, int, int);
 float calculateAngularWidth(object);
+
+void initObject(object*);
+
 
 #endif

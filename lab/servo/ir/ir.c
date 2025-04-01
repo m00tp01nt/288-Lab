@@ -1,7 +1,68 @@
 
+#include <string.h>
+
 #include <lab/servo/ir/ir.h>
+#include <lab/servo/servo.h>
+#include <lab/log/log.h>
+#include <lab/buttons/button.h>
+#include <lab/adc.h>
 #include <math.h>
 
-float normalizeData(int value) { return (value / (float)4095) * 3.3; }
+#define LCD_WIDTH 20
 
-float calculateDistance(float normalizedData) { return (506.2561 - (65.9771 * log(normalizedData))); }
+//float normalizeData(int value) { return (value / (float)4095) * 3.3; }
+
+float calculateDistance(float data) {
+    return (435.5555 - (59.827 * log(data)));
+}
+
+void calibrate_IR() {
+
+    char message[50];
+    char loadingBar[25];
+
+    int i;
+
+    long total = 0;
+    int sampleSize = 100000;
+
+    cyBOT_Scan_t scanner;
+
+    cyBOT_Scan(90, &scanner);
+
+    int current = 0;
+    int samples = 7;
+
+    sprintf(loadingBar, "#-------------------");
+    int loadingBarTracker = 0;
+
+    for (; current < samples; current++) {
+
+        sprintf(loadingBar, "#-------------------");
+        loadingBarTracker = 0;
+
+        sprintf(message, "%dcm\nPress Button 1\0", (current * 5) + 20);
+        log_message(LCD, message);
+        waitForButton(1);
+
+        for (i = 0; i < sampleSize; i++)
+        {
+            total += adc_read();
+
+            // Loading bar
+            if ((loadingBarTracker != round(((float)i / sampleSize) * LCD_WIDTH)) && (loadingBarTracker < LCD_WIDTH)) {
+                loadingBarTracker = round((((float)i / sampleSize) * LCD_WIDTH));
+                loadingBar[loadingBarTracker] = '#';
+                log_message(LCD, loadingBar);
+            }
+        }
+        total = (double)total / sampleSize;
+
+        sprintf(message, "%dcm average : %ld", (current * 5) + 20, total);
+        log_message(PUTTY, message);
+    }
+
+    loga("Calibration complete\nPress Button 4\nto exit\0");
+    waitForButton(4);
+
+}

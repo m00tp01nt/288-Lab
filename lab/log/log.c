@@ -10,7 +10,7 @@ void log_message(LOG_DEVICE device, char* message)
     if (device == LCD)
     {
         lcd_clear();
-        lcd_puts(message);
+        lcd_printf(message);
     }
     else if (device == PUTTY)
     {
