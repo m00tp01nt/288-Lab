@@ -46,8 +46,8 @@ int main(void)
 
 //    cyBOT_SERVRO_cal_t calibrator = cyBOT_SERVO_cal(); return 0;
 
-    right_calibration_value = 238000;
-    left_calibration_value  = 1167250;
+    right_calibration_value = 280000;
+    left_calibration_value  = 1256500;
     cyBOT_Scan_t scanner;
 
     button_init();
@@ -57,7 +57,7 @@ int main(void)
 
     adc_init();
 
-//   calibrate_IR(); return 0;
+//    calibrate_IR(); return 0;
 
     cyBOT_Scan(90, &scanner);
 
@@ -67,27 +67,6 @@ int main(void)
     loga("Press Button 4 to start\0");
     while (button_getButton() != 4) {}
 
-    while (1) {
-        if (command_byte == 1) {
-            oi_setWheels(100, 100);
-        }
-        else if (command_byte == 2) {
-            oi_setWheels(-100, -100);
-        }
-        else if (command_byte == 3) {
-            oi_setWheels(100, -100);
-        }
-        else if (command_byte == 4) {
-            oi_setWheels(-100, 100);
-        }
-        else if (command_byte == 5) {
-            oi_setWheels(0, 0);
-        }
-        else if (command_byte == 6) {
-            findThinnestObject(&scanner, 180 - 45, 45, 1, 5);
-        }
-    }
-
     loga("Running\0");
 
     object position;
@@ -95,7 +74,39 @@ int main(void)
 
     object target;
 
+    //also lab 8
     while (1) {
+        sprintf(message, "DISTANCE : %f", calculateDistance(adc_read()));
+        loga(message);
+        timer_waitMillis(250);
+    }
+
+    while (1) {
+
+//        if (manual_mode) {
+//            if (command_flag == 1) {
+//                oi_setWheels(100, 100);
+//            }
+//            else if (command_flag == 2) {
+//                oi_setWheels(-100, -100);
+//            }
+//            else if (command_flag == 3) {
+//                oi_setWheels(100, -100);
+//            }
+//            else if (command_flag == 4) {
+//                oi_setWheels(-100, 100);
+//            }
+//            else if (command_flag == 5) {
+//                oi_setWheels(0, 0);
+//            }
+//            else if (command_flag == 6) {
+//                oi_setWheels(0, 0);
+//                findThinnestObject(&scanner, 180 - 45, 45, 1, 5);
+//                command_flag = 5;
+//            }
+//            continue;
+//        }
+
 
         log_message(PUTTY, "finding thinnest object");
         target = findThinnestObject(&scanner, 180, 0, 1, 50);
