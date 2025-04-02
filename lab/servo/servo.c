@@ -50,9 +50,16 @@ object findThinnestObject(cyBOT_Scan_t* scanner, int left, int right, int increm
         // Average the data over multiple reads
         pingDistance = 0;
         irDistance = 0;
+        float buffer;
         for (scansPerAngle = 0; scansPerAngle < readsPerAngle; scansPerAngle++) {
             pingDistance += scanner->sound_dist;
-            irDistance += calculateDistance(adc_read());
+            buffer = calculateDistance(adc_read());
+            if (buffer < 75) {
+                irDistance += buffer;
+            }
+            else {
+                irDistance += 200;
+            }
         }
         pingDistance /= readsPerAngle;
         irDistance /= readsPerAngle;
@@ -71,7 +78,7 @@ object findThinnestObject(cyBOT_Scan_t* scanner, int left, int right, int increm
             trackingObject = 0;
             objects[objectCounter].endAngle = (i - 1);
 
-            if (abs(objects[objectCounter].startAngle - objects[objectCounter].endAngle) > 2) {
+            if (abs(objects[objectCounter].startAngle - objects[objectCounter].endAngle) > 5) {
                 objectCounter++;
             }
         }
@@ -80,21 +87,19 @@ object findThinnestObject(cyBOT_Scan_t* scanner, int left, int right, int increm
     sprintf(message, "Found %d objects", objectCounter);
     loga(message);
 
-    // Throw out the first object???
-/*
-* Minor edit if we still want to throw out first object due to noise:
-* if (calculateAngularWidth(objects[0]) < 5) {loga("Ignoring first object due noise.");}
-* j = 1; //Initialize int j = 0;
-*/
+
 
     for (objectCounter--; objectCounter >= 0; objectCounter--)
     {
+        sprintf(message, "Start : %d -- End : %d", objects[objectCounter].startAngle, objects[objectCounter].endAngle);
+        log_message(PUTTY, message);
         objects[objectCounter].midpoint = ((objects[objectCounter].startAngle + objects[objectCounter].endAngle) / 2);
         cyBOT_Scan(objects[objectCounter].midpoint, scanner);
-        sprintf(message, "MIDPOINT : %d", objects[objectCounter].midpoint);
-        log_message(PUTTY, message);
+        timer_waitMillis(500);
         objects[objectCounter].distance = calculateDistance(adc_read());
 
+        sprintf(message, "MIDPOINT : %d", objects[objectCounter].midpoint);
+        log_message(PUTTY, message);
         sprintf(message, "WIDTH : %f", calculateAngularWidth(objects[objectCounter]));
         log_message(PUTTY, message);
 
@@ -107,6 +112,12 @@ object findThinnestObject(cyBOT_Scan_t* scanner, int left, int right, int increm
             smallestObject.distance = objects[objectCounter].distance;
             smallestObject.width = objects[objectCounter].width;
         }
+
+        sprintf(message, "OBJECT #%d", objectCounter);
+        log_message(PUTTY, message);
+
+        printObject(&objects[objectCounter]);
+
         timer_waitMillis(1000);
     }
 
@@ -130,4 +141,20 @@ void initObject(object* o) {
     o->midpoint = 0;
     o->distance = 0.0;
     o->width = 0.0;
+}
+
+void printObject(object* o)
+{
+    char message[40];
+
+    sprintf(message, "OBJECT DISTANCE : %f", o->distance);
+    log_message(PUTTY, message);
+
+    sprintf(message, "OBJECT WIDTH : %f", o->width);
+    log_message(PUTTY, message);
+
+    sprintf(message, "OBJECT MIDPOINT : %d", o->midpoint);
+    log_message(PUTTY, message);
+
+    return;
 }

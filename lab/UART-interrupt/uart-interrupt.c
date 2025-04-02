@@ -15,8 +15,15 @@
 #include <lab/UART-interrupt/uart-interrupt.h>
 #include <stdint.h>
 
+volatile char command_byte = 'l';
 // These variables are declared as examples for your use in the interrupt handler.
-volatile char command_byte = 's'; // byte value for special character used as a command
+//volatile char command_byte = 's';
+volatile char forward_command_byte = 'w';
+volatile char rotate_left_command_byte = 'a';
+volatile char backward_command_byte = 's';
+volatile char rotate_right_command_byte = 'd';
+volatile char stop_moving_command_byte = 'q';
+volatile char scan_command_byte = 'e';
 volatile int command_flag = 0; // flag to tell the main program a special command was received
 
 void uart_interrupt_init(void){
@@ -179,9 +186,29 @@ void UART1_Handler(void)
             //code to update global shared variables
             //DO NOT PUT TIME-CONSUMING CODE IN AN ISR
 
-            if (byte_received == command_byte)
+            if (byte_received == forward_command_byte)
             {
               command_flag = 1;
+            }
+            else if (byte_received == backward_command_byte)
+            {
+                command_flag = 2;
+            }
+            else if (byte_received == rotate_left_command_byte)
+            {
+                command_flag = 3;
+            }
+            else if (byte_received == rotate_right_command_byte)
+            {
+                command_flag = 4;
+            }
+            else if (byte_received == stop_moving_command_byte)
+            {
+                command_flag = 5;
+            }
+            else if (byte_received == scan_command_byte)
+            {
+                command_flag = 6;
             }
         }
     }

@@ -1,9 +1,6 @@
 #include <lab/movement/bump/bump_handlers.h>
 
-void doNothing(oi_t* sensor_data, BUMP* bumpData, double* sum) {
-
-    return;
-}
+void doNothing(oi_t* sensor_data, BUMP* bumpData, double* sum) { return; }
 
 void handleBump(oi_t* sensor_data, BUMP* bumpData, double* sum) {
 

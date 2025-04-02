@@ -32,6 +32,14 @@
 extern volatile char command_byte; // byte value for special character used as a command
 extern volatile int command_flag; // flag to tell the main program a special command was received
 
+extern volatile char forward_command_byte;
+extern volatile char rotate_left_command_byte;
+extern volatile char backward_command_byte;
+extern volatile char rotate_right_command_byte;
+extern volatile char stop_moving_command_byte;
+extern volatile char scan_command_byte;
+
+
 // UART1 device initialization for CyBot to PuTTY
 void uart_interrupt_init(void);
 

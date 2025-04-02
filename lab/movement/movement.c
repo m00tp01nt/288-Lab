@@ -80,6 +80,57 @@ double move(oi_t *sensor_data, double distance_mm, LINEAR_MOVEMENT DIRECTION, vo
     return sum;
 }
 
+double move_dieOnBump(oi_t *sensor_data, double distance_mm, LINEAR_MOVEMENT DIRECTION) {
+
+    log_lcd("Moving\0");
+
+    double lowerBound;
+    double upperBound;
+
+    double sum = 0;
+
+    int leftWheelSpeed;
+    int rightWheelSpeed;
+
+    // Make sure we're going to go the right way
+    if (DIRECTION == BACKWARD) {
+        distance_mm *= -1;
+    }
+
+    lowerBound = doubleMin(distance_mm, distance_mm * -1);
+    upperBound = doubleMax(distance_mm, distance_mm * -1);
+
+    // Should we be moving Forwards or Backwards?
+    if (distance_mm > 0) {
+        rightWheelSpeed = LATERAL_SPEED;
+        leftWheelSpeed = LATERAL_SPEED;
+    }
+    else if (distance_mm < 0) {
+        rightWheelSpeed = -LATERAL_SPEED;
+        leftWheelSpeed = -LATERAL_SPEED;
+    }
+
+    oi_setWheels(rightWheelSpeed, leftWheelSpeed);
+
+    BUMP data;
+
+    while (doubleIsBetween(lowerBound, upperBound, sum)) {
+        oi_update(sensor_data);
+        data = bumpData(sensor_data);
+        if (data != BUMP_NONE) {
+            oi_setWheels(0, 0);
+            log_lcd("Bump! Returning...\0");
+            return 0;
+        }
+        sum += sensor_data->distance;
+    }
+
+    oi_setWheels(0,0);
+    log_lcd("Done Moving\0");
+    return 1;
+}
+
+
 // Positive angles are to the LEFT, negative angles are to the RIGHT
 double rotate(oi_t *sensor_data, double angle, ROTATE_MOVEMENT direction, void(*handler)(oi_t*, BUMP*, double*)) {
 
@@ -128,6 +179,8 @@ double rotate(oi_t *sensor_data, double angle, ROTATE_MOVEMENT direction, void(*
     log_lcd("Done Turning\0");
     return sum;
 }
+
+
 
 double getRealDegreeTarget(double targetDegrees) {
     double answer;

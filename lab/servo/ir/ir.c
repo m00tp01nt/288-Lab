@@ -13,7 +13,8 @@
 //float normalizeData(int value) { return (value / (float)4095) * 3.3; }
 
 float calculateDistance(float data) {
-    return (435.5555 - (59.827 * log(data)));
+//    return (472.6954 - (60.7899 * log(data)));
+    return (118.766 - (14.7909 * log(data - 1000)));
 }
 
 void calibrate_IR() {

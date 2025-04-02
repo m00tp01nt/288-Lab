@@ -35,7 +35,9 @@ int doubleIsBetween(double lower, double upper, double value);
 
 double getRealDegreeTarget(double targetDegrees);
 
-double move(oi_t *sensor_data, double distance_mm, LINEAR_MOVEMENT direction, void(oi_t*, BUMP*, double*));
+double move(oi_t*, double, LINEAR_MOVEMENT, void(oi_t*, BUMP*, double*));
+double move_dieOnBump(oi_t*, double, LINEAR_MOVEMENT);
+
 double rotate(oi_t *sensor_data, double angle, ROTATE_MOVEMENT direction, void(oi_t*, BUMP*, double*));
 
 double just_move(oi_t *sensor_data, double distance_mm);

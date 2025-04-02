@@ -18,6 +18,7 @@ object findThinnestObject(cyBOT_Scan_t*, int, int, int, int);
 float calculateAngularWidth(object);
 
 void initObject(object*);
+void printObject(object*);
 
 
 #endif
