@@ -1,27 +1,3 @@
-#include "Timer.h"
-#include "lcd.h"
-#include "ping_template.h"
-#include <stdint.h>
-#include <stdbool.h>
-
-int main(void)
-{
-    timer_init(); // Initialize timer used by LCD and delays
-    lcd_init();   // Initialize the LCD display
-    ping_init();  // Initialize the PING sensor and Timer 3B for input capture
-
-    while (1)
-    {
-        float distance = ping_getDistance(); // Trigger sensor and get measured distance
-
-        lcd_clear();                         // Clear LCD before writing
-        lcd_printf("Dist: %.2f cm\n", distance); // Print distance to LCD
-
-        timer_waitMillis(0x12C); // Wait 0x12C (300) ms between measurements
-    }
-}
-
-// ping.c implementation
 #include "ping_template.h"
 #include "Timer.h"
 #include <inc/tm4c123gh6pm.h>
