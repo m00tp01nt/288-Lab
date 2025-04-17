@@ -54,13 +54,21 @@ int main(void)
     button_init();
     adc_init();
     ping_init();
+    servo_init();
     log_message(PUTTY, "Initialization Complete\0");
 
 
     loga("Press Button 4 to start\0");
     while (button_getButton() != 4) {}
 
+    servo_move(0);
+    servo_move(90);
+    servo_move(180);
 
+//    int i = 0;
+//    for (; i < 180; i++) {
+//        servo_move(i);
+//    }
 
     loga("Terminated\0");
     return 0;
