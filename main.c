@@ -35,10 +35,10 @@
 #include <lab/servo/ir/ir.h>
 
 // Lab 09
-#include <ping.h>
+#include <lab/servo/ping/ping.h>
 
-// Lab
-#include <servo.h>
+// Lab0
+//#include <servo.h>
 
 int main(void)
 {

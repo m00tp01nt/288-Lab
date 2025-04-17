@@ -1,5 +1,4 @@
 "./main.obj"
-"./ping.obj"
 "./tm4c123gh6pm_startup_ccs.obj"
 "./lab/UART-interrupt/uart-interrupt.obj"
 "./lab/adc.obj"
@@ -11,6 +10,7 @@
 "./lab/oi/open_interface.obj"
 "./lab/servo/ir/ir.obj"
 "./lab/servo/ping/ping.obj"
+"./lab/servo/scan.obj"
 "./lab/servo/servo.obj"
 "./lab/timer/Timer.obj"
 "../libcybotScan.lib"

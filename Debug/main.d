@@ -34,7 +34,7 @@ main.obj: U:/CPRE288/workspace/288_0/lab/servo/servo.h
 main.obj: U:/CPRE288/workspace/288_0/lab/buttons/button.h
 main.obj: U:/CPRE288/workspace/288_0/lab/adc.h
 main.obj: U:/CPRE288/workspace/288_0/lab/servo/ir/ir.h
-main.obj: U:/CPRE288/workspace/288_0/ping.h
+main.obj: U:/CPRE288/workspace/288_0/lab/servo/ping/ping.h
 
 ../main.c:
 
@@ -104,5 +104,5 @@ U:/CPRE288/workspace/288_0/lab/adc.h:
 
 U:/CPRE288/workspace/288_0/lab/servo/ir/ir.h:
 
-U:/CPRE288/workspace/288_0/ping.h:
+U:/CPRE288/workspace/288_0/lab/servo/ping/ping.h:
 

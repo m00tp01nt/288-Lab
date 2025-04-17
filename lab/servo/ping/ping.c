@@ -1,5 +1,5 @@
-#include "ping_template.h"
-#include "Timer.h"
+#include <lab/servo/ping/ping.h>
+#include <lab/timer/Timer.h>
 #include <inc/tm4c123gh6pm.h>
 
 volatile uint32_t g_start_time = 0x00000000; // Captured start time (rising edge)
@@ -59,8 +59,7 @@ void TIMER3B_Handler(void)
     if (g_state == LOW)
     {
         // First edge (rising) detected
-        g_start_time = (TIMER3_TBR_R & 0xFFFF)
-                | ((TIMER3_TBPR_R & 0xFF) << 0x10);
+        g_start_time = (TIMER3_TBR_R & 0xFFFF) | ((TIMER3_TBPR_R & 0xFF) << 0x10);
         g_state = HIGH;
     }
     else if (g_state == HIGH)
