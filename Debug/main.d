@@ -30,11 +30,12 @@ main.obj: U:/CPRE288/workspace/288_0/lab/UART-interrupt/uart-interrupt.h
 main.obj: U:/CPRE288/workspace/288_0/lab/movement/movement.h
 main.obj: U:/CPRE288/workspace/288_0/lab/log/log.h
 main.obj: U:/CPRE288/workspace/288_0/lab/movement/bump/bump_handlers.h
-main.obj: U:/CPRE288/workspace/288_0/lab/servo/servo.h
+main.obj: U:/CPRE288/workspace/288_0/lab/scan/scan.h
 main.obj: U:/CPRE288/workspace/288_0/lab/buttons/button.h
 main.obj: U:/CPRE288/workspace/288_0/lab/adc.h
 main.obj: U:/CPRE288/workspace/288_0/lab/servo/ir/ir.h
 main.obj: U:/CPRE288/workspace/288_0/lab/servo/ping/ping.h
+main.obj: U:/CPRE288/workspace/288_0/lab/servo/servo.h
 
 ../main.c:
 
@@ -96,7 +97,7 @@ U:/CPRE288/workspace/288_0/lab/log/log.h:
 
 U:/CPRE288/workspace/288_0/lab/movement/bump/bump_handlers.h:
 
-U:/CPRE288/workspace/288_0/lab/servo/servo.h:
+U:/CPRE288/workspace/288_0/lab/scan/scan.h:
 
 U:/CPRE288/workspace/288_0/lab/buttons/button.h:
 
@@ -105,4 +106,6 @@ U:/CPRE288/workspace/288_0/lab/adc.h:
 U:/CPRE288/workspace/288_0/lab/servo/ir/ir.h:
 
 U:/CPRE288/workspace/288_0/lab/servo/ping/ping.h:
+
+U:/CPRE288/workspace/288_0/lab/servo/servo.h:
 

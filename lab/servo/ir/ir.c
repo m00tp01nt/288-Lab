@@ -7,6 +7,8 @@
 #include <lab/adc.h>
 #include <math.h>
 
+#include "cyBot_Scan.h"
+
 #define LCD_WIDTH 20
 
 //float normalizeData(int value) { return (value / (float)4095) * 3.3; }

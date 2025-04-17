@@ -18,7 +18,7 @@
 #include <lab/movement/bump/bump_handlers.h>
 
 // Lab 03
-#include <lab/servo/servo.h>
+#include <lab/scan/scan.h>
 #include <cyBot_Scan.h>
 
 // Lab 04
@@ -37,8 +37,8 @@
 // Lab 09
 #include <lab/servo/ping/ping.h>
 
-// Lab0
-//#include <servo.h>
+// Lab10
+#include <lab/servo/servo.h>
 
 int main(void)
 {

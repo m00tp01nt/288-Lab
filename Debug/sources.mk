@@ -120,6 +120,7 @@ lab/log \
 lab/movement/bump \
 lab/movement \
 lab/oi \
+lab/scan \
 lab/servo/ir \
 lab/servo/ping \
 lab/servo \

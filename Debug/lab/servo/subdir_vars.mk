@@ -6,27 +6,21 @@ SHELL = cmd.exe
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../lab/servo/scan.c \
 ../lab/servo/servo.c 
 
 C_DEPS += \
-./lab/servo/scan.d \
 ./lab/servo/servo.d 
 
 OBJS += \
-./lab/servo/scan.obj \
 ./lab/servo/servo.obj 
 
 OBJS__QUOTED += \
-"lab\servo\scan.obj" \
 "lab\servo\servo.obj" 
 
 C_DEPS__QUOTED += \
-"lab\servo\scan.d" \
 "lab\servo\servo.d" 
 
 C_SRCS__QUOTED += \
-"../lab/servo/scan.c" \
 "../lab/servo/servo.c" 
 
 
