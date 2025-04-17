@@ -8,9 +8,6 @@ SHELL = cmd.exe
 CMD_SRCS += \
 ../tm4c123gh6pm.cmd 
 
-LIB_SRCS += \
-../libcybotScan.lib 
-
 C_SRCS += \
 ../main.c \
 ../tm4c123gh6pm_startup_ccs.c 

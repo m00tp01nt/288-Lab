@@ -51,21 +51,16 @@ int main(void)
     // Want to send this as soon as possible
     loga("\nReset\0");
 
-//    cyBOT_init_Scan(0b111);
-//    right_calibration_value = 280000;
-//    left_calibration_value  = 1256500;
-
     button_init();
     adc_init();
     ping_init();
     log_message(PUTTY, "Initialization Complete\0");
 
-//    while (1) { ping_trigger(); }
-
 
     loga("Press Button 4 to start\0");
     while (button_getButton() != 4) {}
-    ping_trigger();
+
+
 
     loga("Terminated\0");
     return 0;

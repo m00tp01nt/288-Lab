@@ -25,7 +25,6 @@ ORDERED_OBJS += \
 "./lab/servo/ping/ping.obj" \
 "./lab/servo/servo.obj" \
 "./lab/timer/Timer.obj" \
-"../libcybotScan.lib" \
 "../tm4c123gh6pm.cmd" \
 $(GEN_CMDS__FLAG) \
 -llibc.a \

@@ -13,7 +13,6 @@
 "./lab/servo/ping/ping.obj"
 "./lab/servo/servo.obj"
 "./lab/timer/Timer.obj"
-"../libcybotScan.lib"
 "../tm4c123gh6pm.cmd"
 -llibc.a
 -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib"

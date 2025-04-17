@@ -1,7 +1,7 @@
 ******************************************************************************
                   TI ARM Linker PC v20.2.7                     
 ******************************************************************************
->> Linked Thu Apr 17 09:46:30 2025
+>> Linked Thu Apr 17 10:40:02 2025
 
 OUTPUT FILE NAME:   <288_0.out>
 ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00002d7d
@@ -62,14 +62,16 @@ section   page    origin      length       input sections
                   000024e5    00000003     --HOLE-- [fill = 0]
                   000024e8    000000ac     button.obj (.text)
                   00002594    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
-                  00002630    00000098     main.obj (.text)
-                  000026c8    00000096     rtsv7M4_T_le_v4SPD16_eabi.lib : ull_div_t2.asm.obj (.text)
-                  0000275e    00000086                                   : fd_cmp_t2.asm.obj (.text:__aeabi_cdcmple)
-                  000027e4    00000086                                   : fd_cmp_t2.asm.obj (.text:__aeabi_cdrcmple)
-                  0000286a    0000007a                                   : memset_t2.asm.obj (.text)
-                  000028e4    0000006e                                   : _printfi.c.obj (.text:_mcpy)
-                  00002952    0000006e                                   : fd_tos_t2.asm.obj (.text)
-                  000029c0    00000068                                   : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  00002630    00000096                                   : ull_div_t2.asm.obj (.text)
+                  000026c6    00000002     --HOLE-- [fill = 0]
+                  000026c8    00000094     main.obj (.text)
+                  0000275c    00000086     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_cmp_t2.asm.obj (.text:__aeabi_cdcmple)
+                  000027e2    00000086                                   : fd_cmp_t2.asm.obj (.text:__aeabi_cdrcmple)
+                  00002868    0000007a                                   : memset_t2.asm.obj (.text)
+                  000028e2    0000006e                                   : _printfi.c.obj (.text:_mcpy)
+                  00002950    0000006e                                   : fd_tos_t2.asm.obj (.text)
+                  000029be    00000068                                   : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  00002a26    00000002     --HOLE-- [fill = 0]
                   00002a28    00000068     log.obj (.text)
                   00002a90    00000064     rtsv7M4_T_le_v4SPD16_eabi.lib : s_frexp.c.obj (.text:frexp)
                   00002af4    00000056                                   : _printfi.c.obj (.text:_pconv_f)
@@ -154,9 +156,9 @@ MODULE SUMMARY
        ------                         ----    -------   -------
     .\
        tm4c123gh6pm_startup_ccs.obj   12      620       0      
-       main.obj                       152     0         0      
+       main.obj                       148     0         0      
     +--+------------------------------+-------+---------+---------+
-       Total:                         164     620       0      
+       Total:                         160     620       0      
                                                                
     .\lab\
        adc.obj                        280     0         0      
@@ -241,7 +243,7 @@ MODULE SUMMARY
        Stack:                         0       0         4096   
        Linker Generated:              0       73        0      
     +--+------------------------------+-------+---------+---------+
-       Grand Total:                   11489   958       8931   
+       Grand Total:                   11485   958       8931   
 
 
 LINKER GENERATED COPY TABLES
@@ -280,7 +282,7 @@ address   name
 00003080  __TI_Handler_Table_Base       
 0000308c  __TI_Handler_Table_Limit      
 00002c85  __TI_auto_init_nobinit_nopinit
-000029c1  __TI_decompress_lzss          
+000029bf  __TI_decompress_lzss          
 00002f21  __TI_decompress_none          
 00002b4b  __TI_ltoa                     
 ffffffff  __TI_pprof_out_hndl           
@@ -289,10 +291,10 @@ ffffffff  __TI_prof_data_size
 ffffffff  __TI_prof_data_start          
 00000000  __TI_static_base__            
 00002e2f  __TI_zero_init_nomemset       
-0000275f  __aeabi_cdcmpeq               
-0000275f  __aeabi_cdcmple               
-000027e5  __aeabi_cdrcmple              
-00002953  __aeabi_d2f                   
+0000275d  __aeabi_cdcmpeq               
+0000275d  __aeabi_cdcmple               
+000027e3  __aeabi_cdrcmple              
+00002951  __aeabi_d2f                   
 00002c3d  __aeabi_d2iz                  
 00001bcb  __aeabi_dadd                  
 00001eb5  __aeabi_ddiv                  
@@ -302,17 +304,17 @@ ffffffff  __TI_prof_data_start
 00002de1  __aeabi_i2d                   
 00000cbb  __aeabi_idiv0                 
 00000cbb  __aeabi_ldiv0                 
-0000286b  __aeabi_memclr                
-0000286b  __aeabi_memclr4               
-0000286b  __aeabi_memclr8               
+00002869  __aeabi_memclr                
+00002869  __aeabi_memclr4               
+00002869  __aeabi_memclr8               
 00002595  __aeabi_memcpy                
 00002595  __aeabi_memcpy4               
 00002595  __aeabi_memcpy8               
-0000286d  __aeabi_memset                
-0000286d  __aeabi_memset4               
-0000286d  __aeabi_memset8               
+0000286b  __aeabi_memset                
+0000286b  __aeabi_memset4               
+0000286b  __aeabi_memset8               
 00002e0f  __aeabi_ui2d                  
-000026c9  __aeabi_uldivmod              
+00002631  __aeabi_uldivmod              
 ffffffff  __binit__                     
 ffffffff  __c_args__                    
 UNDEFED   __mpu_init                    
@@ -363,12 +365,12 @@ ffffffff  binit
 00002a29  log_message                   
 00002a5b  log_putty                     
 00002a77  loga                          
-00002631  main                          
+000026c9  main                          
 200022d4  manual_mode                   
 200022ce  manual_mode_commmand_byte     
 00002e4b  memccpy                       
 00002595  memcpy                        
-00002873  memset                        
+00002871  memset                        
 000016b9  ping_getDistance              
 00001545  ping_init                     
 000015dd  ping_trigger                  
@@ -455,20 +457,20 @@ address   name
 00002595  __aeabi_memcpy4               
 00002595  __aeabi_memcpy8               
 00002595  memcpy                        
-00002631  main                          
-000026c9  __aeabi_uldivmod              
-0000275f  __aeabi_cdcmpeq               
-0000275f  __aeabi_cdcmple               
-000027e5  __aeabi_cdrcmple              
-0000286b  __aeabi_memclr                
-0000286b  __aeabi_memclr4               
-0000286b  __aeabi_memclr8               
-0000286d  __aeabi_memset                
-0000286d  __aeabi_memset4               
-0000286d  __aeabi_memset8               
-00002873  memset                        
-00002953  __aeabi_d2f                   
-000029c1  __TI_decompress_lzss          
+00002631  __aeabi_uldivmod              
+000026c9  main                          
+0000275d  __aeabi_cdcmpeq               
+0000275d  __aeabi_cdcmple               
+000027e3  __aeabi_cdrcmple              
+00002869  __aeabi_memclr                
+00002869  __aeabi_memclr4               
+00002869  __aeabi_memclr8               
+0000286b  __aeabi_memset                
+0000286b  __aeabi_memset4               
+0000286b  __aeabi_memset8               
+00002871  memset                        
+00002951  __aeabi_d2f                   
+000029bf  __TI_decompress_lzss          
 00002a29  log_message                   
 00002a5b  log_putty                     
 00002a69  log_lcd                       
