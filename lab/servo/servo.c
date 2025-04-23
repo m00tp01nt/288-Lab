@@ -57,6 +57,7 @@ void servo_move(uint16_t degrees)
     TIMER1_CTL_R |= 0b100000000;   // Page 737
     //TIMER1_CTL_R |= TIMER_CTL_TBEN
 
+#warning FIX ME!
     timer_waitMillis(1000);
     currentAngle = degrees;
 }

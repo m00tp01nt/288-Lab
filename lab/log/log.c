@@ -4,7 +4,6 @@
 
 void log_message(LOG_DEVICE device, char* message)
 {
-
     if (!ENABLE_LOGS) return;
 
     if (device == LCD)
@@ -32,4 +31,16 @@ void loga(char* message)
 {
     log_message(PUTTY, message);
     log_message(LCD, message);
+}
+
+void loglevel(LOG_DEVICE detination, LOG_LEVEL level, const char* message, ...) {
+
+    char buffer[MAX_MESSAGE_LENGTH];
+    va_list arglist;
+    va_start(arglist, message);
+    vsnprintf(buffer, MAX_MESSAGE_LENGTH, message, arglist);
+    if (level <= ERROR) {
+        log_message(detination, buffer);
+    }
+    va_end(arglist);
 }
